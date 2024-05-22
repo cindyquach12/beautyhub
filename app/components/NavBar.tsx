@@ -37,9 +37,7 @@ export async function NavBar() {
 
                 <div className="flex items-center gap-x-5">
                     <ThemeToggle />
-                    <LogoutLink>
-                        <Profile/>
-                    </LogoutLink>
+                    <Profile/>
                 </div>
             </div>
         </nav>

@@ -10,6 +10,11 @@ import {
     DropdownMenuSeparator,
     DropdownMenuLabel
 } from "@/components/ui/dropdown-menu";
+import {
+    RegisterLink,
+    LoginLink,
+    LogoutLink,
+} from "@kinde-oss/kinde-auth-nextjs/components";
 
 export default function Profile(){
     return (
@@ -26,7 +31,11 @@ export default function Profile(){
                 <DropdownMenuItem>Favorites</DropdownMenuItem>
                 <DropdownMenuItem>Settings</DropdownMenuItem>
                 <DropdownMenuSeparator />
-                <DropdownMenuItem>Log out</DropdownMenuItem>
+                <DropdownMenuItem>
+                    <LogoutLink>
+                        Log out
+                    </LogoutLink>
+                </DropdownMenuItem>
             </DropdownMenuContent>
         </DropdownMenu>
     )
