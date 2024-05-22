@@ -7,21 +7,9 @@ import Link from "next/link";
 
 export function SearchWithInput() {
     const [searchText, setSearchText] = useState("");
-    const [location, setLocation] = useState(0);
     const onSearchClick = () => {
-        console.log(searchText, location);
+        console.log(searchText);
     };
-
-    useEffect(() => {
-        if ("geolocation" in navigator) {
-            // Retrieve latitude & longitude coordinates from `navigator.geolocation` Web API
-            navigator.geolocation.getCurrentPosition(({ coords }) => {
-                const { latitude, longitude } = coords;
-                setLocation(latitude);
-                console.log(latitude, longitude);
-            });
-        }
-    }, []);
 
     return (
         <div className="flex w-full items-center space-x-2">
@@ -33,7 +21,7 @@ export function SearchWithInput() {
             <Input
                 type="text"
                 placeholder="Location"
-                onChange={(e) => setLocation(e.target.value)}
+                onChange={() => {}}
             />
             <Link href="/dashboard">
                 <Button onClick={() => onSearchClick()}>Search</Button>
