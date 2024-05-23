@@ -13,7 +13,7 @@ export async function NavBar() {
     const { isAuthenticated } = getKindeServerSession();
 
     return (
-        <nav className="border-b bg-background h-[10vh] flex items-center sticky top-0 w-full">
+        <nav className="border-b bg-white h-[10vh] flex items-center sticky top-0 w-full">
             <div className="container flex items-center justify-between">
                 <Link href="/">
                     <h1 className="font-bold text-3xl">BeautyHub</h1>
