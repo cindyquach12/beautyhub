@@ -19,7 +19,7 @@ import {
 export default function Profile(){
     return (
         <DropdownMenu>
-            <DropdownMenuTrigger>
+            <DropdownMenuTrigger asChild>
                 <Button>
                     Profile
                 </Button>
