@@ -13,16 +13,18 @@ export async function NavBar() {
     const { isAuthenticated } = getKindeServerSession();
 
     return (
-        <nav className="border-b bg-background h-[10vh] flex items-center sticky top-0 w-full z-10">
+        <nav className="border-b border-border/40 backdrop-blur-md bg-background/90 h-[10vh] flex items-center sticky top-0 w-full z-10">
             <div className="container flex items-center justify-between">
                 <Link href="/">
                     <h1 className="font-bold text-3xl">BeautyHub</h1>
                 </Link>
 
-                {/* {(await isAuthenticated()) ? (
-                    <LogoutLink>
-                        <Button>Log out</Button>
-                    </LogoutLink>
+                {(await isAuthenticated()) ? (
+                    <div className="flex items-center gap-x-5">
+                        <ThemeToggle />
+                        <Button><Link href={"/business"}>For business</Link></Button>
+                        <Profile/>
+                     </div>
                 ) : (
                     <div className="flex items-center gap-x-5">
                         <ThemeToggle />
@@ -33,12 +35,8 @@ export async function NavBar() {
                             <Button variant="secondary">Sign Up</Button>
                         </RegisterLink>
                     </div>
-                )} */}
-
-                <div className="flex items-center gap-x-5">
-                    <ThemeToggle />
-                    <Profile/>
-                </div>
+                )}
+                
             </div>
         </nav>
     );

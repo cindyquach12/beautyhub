@@ -1,5 +1,4 @@
 // Profile component - doubles as picture and settings menu dropdown
-'use client';
 
 import { Button } from "@/components/ui/button";
 import {
@@ -10,13 +9,19 @@ import {
     DropdownMenuSeparator,
     DropdownMenuLabel
 } from "@/components/ui/dropdown-menu";
+import Link from "next/link";
 import {
     RegisterLink,
     LoginLink,
     LogoutLink,
 } from "@kinde-oss/kinde-auth-nextjs/components";
+import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 
-export default function Profile(){
+export default async function Profile(){
+    const { isAuthenticated } = getKindeServerSession();
+
+    // Login / Sign up vs just Log in?
+
     return (
         <DropdownMenu>
             <DropdownMenuTrigger asChild>
@@ -27,14 +32,20 @@ export default function Profile(){
             <DropdownMenuContent align="end">
                 <DropdownMenuLabel>My Account</DropdownMenuLabel>
                 <DropdownMenuSeparator />
-                <DropdownMenuItem>Profile</DropdownMenuItem>
-                <DropdownMenuItem>Favorites</DropdownMenuItem>
-                <DropdownMenuItem>Settings</DropdownMenuItem>
+                <DropdownMenuItem><Link href={'/profile'}>Profile</Link></DropdownMenuItem>
+                <DropdownMenuItem><Link href={'/profile/{profileId}/favorites'}>Favorites</Link></DropdownMenuItem>
+                <DropdownMenuItem><Link href={'/profile/{profileId}/settings'}>Settings</Link></DropdownMenuItem>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem>
-                    <LogoutLink>
-                        Log out
-                    </LogoutLink>
+                    {(await isAuthenticated()) ? (
+                        <LogoutLink>
+                            Log out
+                        </LogoutLink>
+                    ) : (
+                        <LoginLink>
+                            Log in
+                        </LoginLink>
+                    )}
                 </DropdownMenuItem>
             </DropdownMenuContent>
         </DropdownMenu>
