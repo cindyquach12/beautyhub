@@ -7,7 +7,7 @@ import {
 } from "@kinde-oss/kinde-auth-nextjs/components";
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 import { ThemeToggle } from "./ThemeToggle";
-import Profile from "./Profile";
+import ProfileMenu from "./ProfileMenu";
 
 export async function NavBar() {
     const { isAuthenticated } = getKindeServerSession();
@@ -22,12 +22,13 @@ export async function NavBar() {
                 {(await isAuthenticated()) ? (
                     <div className="flex items-center gap-x-5">
                         <ThemeToggle />
-                        <Button><Link href={"/business"}>For business</Link></Button>
-                        <Profile/>
+                        <Link href={"/business"}><Button>For business</Button></Link>
+                        <ProfileMenu/>
                      </div>
                 ) : (
                     <div className="flex items-center gap-x-5">
                         <ThemeToggle />
+                        <Link href={"/business"}><Button>For business</Button></Link>
                         <LoginLink>
                             <Button>Sign In</Button>
                         </LoginLink>

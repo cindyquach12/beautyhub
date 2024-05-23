@@ -17,7 +17,7 @@ import {
 } from "@kinde-oss/kinde-auth-nextjs/components";
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 
-export default async function Profile(){
+export default async function ProfileMenu(){
     const { isAuthenticated } = getKindeServerSession();
 
     // Login / Sign up vs just Log in?
@@ -32,9 +32,9 @@ export default async function Profile(){
             <DropdownMenuContent align="end">
                 <DropdownMenuLabel>My Account</DropdownMenuLabel>
                 <DropdownMenuSeparator />
-                <DropdownMenuItem><Link href={'/profile'}>Profile</Link></DropdownMenuItem>
-                <DropdownMenuItem><Link href={'/profile/{profileId}/favorites'}>Favorites</Link></DropdownMenuItem>
-                <DropdownMenuItem><Link href={'/profile/{profileId}/settings'}>Settings</Link></DropdownMenuItem>
+                <DropdownMenuItem><Link href={'/{profileId}'}>Profile</Link></DropdownMenuItem>
+                <DropdownMenuItem><Link href={'/{profileId}/favorites'}>Favorites</Link></DropdownMenuItem>
+                <DropdownMenuItem><Link href={'/{profileId}/settings'}>Settings</Link></DropdownMenuItem>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem>
                     {(await isAuthenticated()) ? (
