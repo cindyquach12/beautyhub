@@ -40,7 +40,6 @@ export const SearchWithInput: FunctionComponent = () => {
                     const currLatitude = position.coords.latitude;
                     const currLongitude = position.coords.longitude;
                     const response = await fetch(
-                        // TODO: protect API key
                         `https://maps.googleapis.com/maps/api/geocode/json?latlng=${currLatitude},${currLongitude}&key=AIzaSyATA-Pdjz9ALmao1bYQPy7daywxkpSu75Q`
                     );
                     const responseJson = await response.json();
