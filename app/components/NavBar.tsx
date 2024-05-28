@@ -3,13 +3,12 @@ import Link from "next/link";
 import {
     RegisterLink,
     LoginLink,
-    LogoutLink,
 } from "@kinde-oss/kinde-auth-nextjs/components";
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 import { ThemeToggle } from "./ThemeToggle";
-import ProfileMenu from "./ProfileMenu";
+import { ProfileMenu } from "./ProfileMenu";
 
-export async function NavBar() {
+export async function NavBar(){
     const { isAuthenticated } = getKindeServerSession();
 
     return (
@@ -19,25 +18,23 @@ export async function NavBar() {
                     <h1 className="font-bold text-3xl">BeautyHub</h1>
                 </Link>
 
-                {(await isAuthenticated()) ? (
-                    <div className="flex items-center gap-x-5">
-                        <ThemeToggle />
-                        <Link href={"/business"}><Button>For business</Button></Link>
+                <div className="flex items-center gap-x-5">
+                    <ThemeToggle />
+                    <Link href={"/business"}><Button>For business</Button></Link>
+                    
+                    {(await isAuthenticated()) ? (
                         <ProfileMenu/>
-                     </div>
-                ) : (
-                    <div className="flex items-center gap-x-5">
-                        <ThemeToggle />
-                        <Link href={"/business"}><Button>For business</Button></Link>
-                        <LoginLink>
-                            <Button>Sign In</Button>
-                        </LoginLink>
-                        <RegisterLink>
-                            <Button variant="secondary">Sign Up</Button>
-                        </RegisterLink>
-                    </div>
-                )}
-                
+                    ) : (
+                        <div className="flex items-center gap-x-5">
+                            <LoginLink>
+                                <Button>Sign In</Button>
+                            </LoginLink>
+                            <RegisterLink>
+                                <Button variant="secondary">Sign Up</Button>
+                            </RegisterLink>
+                        </div>
+                    )}
+                </div>
             </div>
         </nav>
     );

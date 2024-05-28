@@ -11,16 +11,13 @@ import {
 } from "@/components/ui/dropdown-menu";
 import Link from "next/link";
 import {
-    RegisterLink,
     LoginLink,
     LogoutLink,
 } from "@kinde-oss/kinde-auth-nextjs/components";
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 
-export default async function ProfileMenu(){
+export async function ProfileMenu(){
     const { isAuthenticated } = getKindeServerSession();
-
-    // Login / Sign up vs just Log in?
 
     return (
         <DropdownMenu>

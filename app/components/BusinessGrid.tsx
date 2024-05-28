@@ -1,20 +1,19 @@
 'use client';
-import BusinessCard from "./BusinessCard";
+import { BusinessCard } from "./BusinessCard";
+import businesses from "../mock-data/business-card-mock-data";
 
-// Chris's note: i'll need to use a forEach to iterate through the businesses to populate grid
-
-export default function BusinessGrid(){
+export const BusinessGrid = () => {
     return (
         <div className="grid grid-rows-3 grid-cols-3 gap-10">
-            <BusinessCard/>
-            <BusinessCard/>
-            <BusinessCard/>
-            <BusinessCard/>
-            <BusinessCard/>
-            <BusinessCard/>
-            <BusinessCard/>
-            <BusinessCard/>
-            <BusinessCard/>
+            {businesses.map(business => (
+                <BusinessCard
+                    name={business.name}
+                    rating={business.rating}
+                    reviewCount={business.reviewCount} 
+                    location={business.location} 
+                    imageSrc={business.imageSrc}
+                />
+            ))}
         </div>
     )
 }
