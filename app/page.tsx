@@ -27,7 +27,7 @@ export default async function HomeSplash() {
                         )}
                     </div>
                 </div>
-                <h3 className="text-xl my-4 font-bold">Recommended</h3>
+
                 <BusinessGrid />
             </div>
         </section>

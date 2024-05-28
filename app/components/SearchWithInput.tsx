@@ -2,7 +2,7 @@
 import * as React from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Link from "next/link";
 
 export function SearchWithInput() {
@@ -18,11 +18,7 @@ export function SearchWithInput() {
                 placeholder="lashes, brows, lips, and more"
                 onChange={(e) => setSearchText(e.target.value)}
             />
-            <Input
-                type="text"
-                placeholder="Location"
-                onChange={() => {}}
-            />
+            <Input type="text" placeholder="Location" onChange={() => {}} />
             <Link href="/dashboard">
                 <Button onClick={() => onSearchClick()}>Search</Button>
             </Link>
