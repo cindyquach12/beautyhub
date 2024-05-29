@@ -4,7 +4,7 @@ import businesses from "../mock-data/business-card-mock-data";
 
 export const BusinessGrid = () => {
     const recommended = businesses.filter((business) => business.rating > 4.0);
-    const newcomers = businesses.filter(
+    const newBusinessUser = businesses.filter(
         (business) => business.reviewCount < 100
     );
 
@@ -26,7 +26,7 @@ export const BusinessGrid = () => {
             </div>
             <h3 className="text-xl my-4 font-bold">New to BeautyHub</h3>
             <div className="grid grid-cols-3 gap-10">
-                {newcomers
+                {newBusinessUser
                     .map((business) => (
                         <BusinessCard
                             name={business.name}
