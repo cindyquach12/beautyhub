@@ -13,23 +13,35 @@ import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 
 export async function ProfileMenu() {
     const { isAuthenticated } = getKindeServerSession();
+    const tempUserName = "Mickey Tran";
+    const profileId = 1337;
 
     return (
         <DropdownMenu>
             <DropdownMenuTrigger asChild>
-                <Button>Profile</Button>
+                <Button>{tempUserName}</Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end">
                 <DropdownMenuLabel>My Account</DropdownMenuLabel>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem>
-                    <Link href={"/{profileId}"}>Profile</Link>
+                    <Link href={`/profile/${profileId}`}>Profile</Link>
                 </DropdownMenuItem>
                 <DropdownMenuItem>
-                    <Link href={"/{profileId}/favorites"}>Favorites</Link>
+                    <Link href={`/profile/${profileId}/favorites`}>
+                        Favorites
+                    </Link>
                 </DropdownMenuItem>
                 <DropdownMenuItem>
-                    <Link href={"/{profileId}/settings"}>Settings</Link>
+                    <Link href={`/profile/${profileId}/settings`}>
+                        Settings
+                    </Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem>
+                    <Link href={`/profile/${profileId}/billing`}>Billing</Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem>
+                    <Link href={`/profile/${profileId}/reviews`}>Reviews</Link>
                 </DropdownMenuItem>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem>
