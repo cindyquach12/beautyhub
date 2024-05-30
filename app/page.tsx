@@ -2,14 +2,13 @@ import { Button } from "@/components/ui/button";
 import { RegisterLink } from "@kinde-oss/kinde-auth-nextjs/components";
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 import { SearchWithInput } from "./components/SearchWithInput";
+import { BusinessGrid } from "./components/BusinessGrid";
 
 export default async function HomeSplash() {
     const { isAuthenticated } = getKindeServerSession();
 
-    // temporarily extending page height to test sticky navbar
-
     return (
-        <section className="flex justify-center bg-background h-[62.5rem]">
+        <section className="flex justify-center bg-background h-[125rem]">
             <div className="relative items-center w-full px-5 py-12 mx-auto lg:px-16 max-w-7xl md:px-12">
                 <div className="max-w-3xl mx-auto text-center">
                     <div>
@@ -28,6 +27,8 @@ export default async function HomeSplash() {
                         )}
                     </div>
                 </div>
+
+                <BusinessGrid />
             </div>
         </section>
     );
