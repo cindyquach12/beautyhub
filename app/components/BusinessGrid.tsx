@@ -1,7 +1,6 @@
 "use client";
 import { BusinessCard } from "./BusinessCard";
 import { useEffect, useState, FunctionComponent } from "react";
-// import businesses from "../mock-data/business-card-mock-data";
 import supabase from "../config/supabaseClient";
 
 type BusinessType = {
