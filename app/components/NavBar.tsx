@@ -7,8 +7,9 @@ import {
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 import { ThemeToggle } from "./ThemeToggle";
 import { ProfileMenu } from "./ProfileMenu";
+import { FunctionComponent } from "react";
 
-export async function NavBar() {
+export const NavBar: FunctionComponent = async () => {
     const { isAuthenticated } = getKindeServerSession();
 
     return (
@@ -40,4 +41,4 @@ export async function NavBar() {
             </div>
         </nav>
     );
-}
+};

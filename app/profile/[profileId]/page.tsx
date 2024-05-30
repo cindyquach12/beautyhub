@@ -1,4 +1,14 @@
-export default function UserProfile({ params }) {
+import { FunctionComponent } from "react";
+
+type UserProfileProps = {
+    params: {
+        profileId: string;
+    };
+};
+
+export const UserProfile: FunctionComponent<UserProfileProps> = ({
+    params,
+}) => {
     return (
         <div>
             <h1 className="text-2xl font-bold ml-[3.3125rem] mt-10">
@@ -6,4 +16,6 @@ export default function UserProfile({ params }) {
             </h1>
         </div>
     );
-}
+};
+
+export default UserProfile;

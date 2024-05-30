@@ -20,8 +20,9 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { LoginLink, LogoutLink } from "@kinde-oss/kinde-auth-nextjs/components";
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
+import { FunctionComponent } from "react";
 
-export async function ProfileMenu() {
+export const ProfileMenu: FunctionComponent = async () => {
     const { isAuthenticated } = getKindeServerSession();
     const tempUserName = "Mickey Tran";
     const profileId = 1337;
@@ -93,4 +94,4 @@ export async function ProfileMenu() {
             </DropdownMenuContent>
         </DropdownMenu>
     );
-}
+};

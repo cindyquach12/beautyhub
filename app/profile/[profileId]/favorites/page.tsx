@@ -1,4 +1,6 @@
-export default function Favorites() {
+import { FunctionComponent } from "react";
+
+export const Favorites: FunctionComponent = () => {
     return (
         <div>
             <h1 className="text-2xl font-bold ml-14 mt-10">
@@ -6,4 +8,6 @@ export default function Favorites() {
             </h1>
         </div>
     );
-}
+};
+
+export default Favorites;
