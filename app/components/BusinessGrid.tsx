@@ -1,6 +1,6 @@
 "use client";
 import { BusinessCard } from "./BusinessCard";
-import { useEffect, useState, FunctionComponent } from "react";
+import { useState, FunctionComponent } from "react";
 import supabase from "../config/supabaseClient";
 
 type BusinessType = {
@@ -18,24 +18,22 @@ export const BusinessGrid: FunctionComponent = () => {
     const [fetchError, setFetchError] = useState<any | null>(null);
     const [businesses, setBusinesses] = useState<any | null>([]);
 
-    useEffect(() => {
-        const fetchBusinesses = async () => {
-            const { data, error } = await supabase.from("businesses").select();
+    const fetchBusinesses = async () => {
+        const { data, error } = await supabase.from("businesses").select();
 
-            if (error) {
-                setBusinesses(null);
-                setFetchError("Could not fetch businesses");
-                console.log(error);
-            }
-            if (data) {
-                setBusinesses(data);
-                setFetchError(null);
-                console.log("successfully got businesses data");
-            }
-        };
+        if (error) {
+            setBusinesses(null);
+            setFetchError("Could not fetch businesses");
+            console.log(error);
+        }
+        if (data) {
+            setBusinesses(data);
+            setFetchError(null);
+            console.log("successfully got businesses data");
+        }
+    };
 
-        fetchBusinesses();
-    }, []);
+    fetchBusinesses();
 
     const recommended = businesses.filter(
         (business: BusinessType) => business.rating > 4.0
