@@ -1,6 +1,6 @@
 "use client";
 import { BusinessCard } from "./BusinessCard";
-import { useState, FunctionComponent } from "react";
+import { useState, FunctionComponent, useEffect } from "react";
 import supabase from "../config/supabaseClient";
 
 type BusinessType = {
@@ -15,25 +15,20 @@ type BusinessType = {
 };
 
 export const BusinessGrid: FunctionComponent = () => {
-    const [fetchError, setFetchError] = useState<any | null>(null);
     const [businesses, setBusinesses] = useState<any | null>([]);
 
-    const fetchBusinesses = async () => {
-        const { data, error } = await supabase.from("businesses").select();
-
-        if (error) {
-            setBusinesses(null);
-            setFetchError("Could not fetch businesses");
-            console.log(error);
-        }
-        if (data) {
-            setBusinesses(data);
-            setFetchError(null);
-            console.log("successfully got businesses data");
-        }
-    };
-
-    fetchBusinesses();
+    useEffect(() => {
+        const fetchBusinesses = async () => {
+            const { data, error } = await supabase.from("businesses").select();
+            if (data) {
+                setBusinesses(data);
+            }
+            if (error) {
+                throw error;
+            }
+        };
+        fetchBusinesses();
+    }, []);
 
     const recommended = businesses.filter(
         (business: BusinessType) => business.rating > 4.0
@@ -47,8 +42,9 @@ export const BusinessGrid: FunctionComponent = () => {
             <h3 className="text-xl my-4 font-bold">Recommended</h3>
             <div className="grid grid-cols-3 gap-10">
                 {recommended
-                    .map((business: BusinessType) => (
+                    .map((business: BusinessType, index) => (
                         <BusinessCard
+                            key={`${business.id}-${index}`}
                             name={business.name}
                             rating={business.rating}
                             reviewCount={business.reviewCount}
@@ -61,8 +57,9 @@ export const BusinessGrid: FunctionComponent = () => {
             <h3 className="text-xl my-4 font-bold">New to BeautyHub</h3>
             <div className="grid grid-cols-3 gap-10">
                 {newBusinessUser
-                    .map((business: BusinessType) => (
+                    .map((business: BusinessType, index) => (
                         <BusinessCard
+                            key={`${business.id}-${index}`}
                             name={business.name}
                             rating={business.rating}
                             reviewCount={business.reviewCount}

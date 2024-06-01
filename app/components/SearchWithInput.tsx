@@ -6,7 +6,6 @@ import { Input } from "@/components/ui/input";
 import { useState } from "react";
 import { FunctionComponent } from "react";
 import Link from "next/link";
-import { services } from "../mock-data/search-with-input-mock-data";
 import { cn } from "@/lib/utils";
 import {
     Command,
@@ -22,6 +21,7 @@ import {
     PopoverTrigger,
 } from "@/components/ui/popover";
 import { ChevronsUpDown, Check } from "lucide-react";
+import supabase from "../config/supabaseClient";
 
 type LocationType = {
     city: string;
@@ -30,8 +30,18 @@ type LocationType = {
 
 export const SearchWithInput: FunctionComponent = () => {
     const [location, setLocation] = useState<LocationType>();
+    const [locationTextInput, setLocationTextInput] = useState("");
     const [open, setOpen] = useState(false);
     const [value, setValue] = useState("");
+    const [services, setServices] = useState<any>([]);
+
+    const fetchServices = async () => {
+        const { data, error } = await supabase.from("services").select();
+        setServices(data);
+        if (error) {
+            throw error;
+        }
+    };
 
     const onUseCurrentLocationClick = () => {
         if ("geolocation" in navigator) {
@@ -74,13 +84,10 @@ export const SearchWithInput: FunctionComponent = () => {
                             variant="outline"
                             role="combobox"
                             aria-expanded={open}
+                            onClick={fetchServices}
                             className="w-80 justify-between"
                         >
-                            {(services &&
-                                services.find(
-                                    (service) => service.value === value
-                                )?.label) ??
-                                "Select service"}
+                            {value === "" ? "Select service" : value}
                             <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
                         </Button>
                     </PopoverTrigger>
@@ -90,10 +97,10 @@ export const SearchWithInput: FunctionComponent = () => {
                             <CommandList>
                                 <CommandEmpty>No service found.</CommandEmpty>
                                 <CommandGroup>
-                                    {services.map((service) => (
+                                    {services.map((service, index) => (
                                         <CommandItem
-                                            key={service.value}
-                                            value={service.value}
+                                            key={`${service.id}-${index}`}
+                                            value={service.name}
                                             onSelect={(currentValue) => {
                                                 setValue(
                                                     currentValue === value
@@ -106,12 +113,12 @@ export const SearchWithInput: FunctionComponent = () => {
                                             <Check
                                                 className={cn(
                                                     "mr-2 h-4 w-4",
-                                                    value === service.value
+                                                    value === service.name
                                                         ? "opacity-100"
                                                         : "opacity-0"
                                                 )}
                                             />
-                                            {service.label}
+                                            {service.name}
                                         </CommandItem>
                                     ))}
                                 </CommandGroup>
@@ -123,12 +130,17 @@ export const SearchWithInput: FunctionComponent = () => {
             <Input
                 type="text"
                 placeholder="Enter a location"
-                value={location ? `${location.city}, ${location.state}` : ""}
+                value={
+                    location
+                        ? `${location.city}, ${location.state}`
+                        : locationTextInput
+                }
                 className="w-80"
                 onClick={onUseCurrentLocationClick}
+                onInput={(event) => setLocationTextInput(event.target.value)}
             />
-            <Link href="/dashboard">
-                <Button onClick={() => {}}>Search</Button>
+            <Link href="/search">
+                <Button>Search</Button>
             </Link>
         </div>
     );
