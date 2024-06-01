@@ -137,7 +137,9 @@ export const SearchWithInput: FunctionComponent = () => {
                 }
                 className="w-80"
                 onClick={onUseCurrentLocationClick}
-                onInput={(event) => setLocationTextInput(event.target.value)}
+                onInput={(event) =>
+                    setLocationTextInput(event.currentTarget.value)
+                }
             />
             <Link href="/search">
                 <Button>Search</Button>
