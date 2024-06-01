@@ -13,7 +13,7 @@ export const NavBar: FunctionComponent = async () => {
     const { isAuthenticated } = getKindeServerSession();
 
     return (
-        <nav className="border-b border-border/40 backdrop-blur-md bg-background/90 h-[10vh] flex items-center sticky top-0 w-full z-10">
+        <nav className="border-b border-border/40 backdrop-blur-md bg-background/90 h-[10vh] flex items-center sticky top-0 w-full z-2">
             <div className="container flex items-center justify-between">
                 <Link href="/">
                     <h1 className="font-bold text-3xl">BeautyHub</h1>

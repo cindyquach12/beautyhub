@@ -27,7 +27,6 @@ export default async function HomeSplash() {
                         )}
                     </div>
                 </div>
-
                 <BusinessGrid />
             </div>
         </section>

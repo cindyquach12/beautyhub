@@ -14,7 +14,6 @@ import {
     LogIn,
     LogOut,
     BookHeart,
-    Book,
 } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
@@ -43,6 +42,7 @@ export const ProfileMenu: FunctionComponent = async () => {
                         </div>
                     </Link>
                 </DropdownMenuItem>
+                ``
                 <DropdownMenuItem>
                     <Link href={`/profile/${profileId}/favorites`}>
                         <div className="flex items-center">
