@@ -39,14 +39,16 @@ export const BusinessGrid: FunctionComponent = () => {
     );
 
     let isOnSearch = usePathname() === "/search";
+    const searchHeaderStyling =
+        "text-xl h-14 py-4 mb-4 border-b border-border/70 font-bold sticky top-0 bg-background";
+    const defaultHeaderStyling =
+        "text-xl h-12 my-4 border-b border-border/70 font-bold bg-background";
 
     return (
         <div>
             <h3
                 className={
-                    isOnSearch
-                        ? "text-xl h-14 py-4 mb-4 border-b border-border/70 font-bold sticky top-0 bg-background"
-                        : "text-xl h-12 my-4 border-b border-border/70 font-bold bg-background"
+                    isOnSearch ? searchHeaderStyling : defaultHeaderStyling
                 }
             >
                 Recommended
@@ -71,9 +73,7 @@ export const BusinessGrid: FunctionComponent = () => {
             </div>
             <h3
                 className={
-                    isOnSearch
-                        ? "text-xl h-14 py-4 mb-4 border-b border-border/70 font-bold sticky top-0 bg-background"
-                        : "text-xl h-12 my-4 border-b border-border/70 font-bold bg-background"
+                    isOnSearch ? searchHeaderStyling : defaultHeaderStyling
                 }
             >
                 New to BeautyHub
