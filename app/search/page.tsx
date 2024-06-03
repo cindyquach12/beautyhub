@@ -7,10 +7,8 @@ export const SearchPage: FunctionComponent = () => {
     return (
         <div className="bg-background">
             <NavBarWithFilters />
-            <div className="flex">
-                <BusinessSidebar />
-                <div className="fixed right-0 w-2/3 bg-background">Map</div>
-            </div>
+            <BusinessSidebar />
+            <div className="fixed right-0 w-2/3 bg-background">Map</div>
         </div>
     );
 };
