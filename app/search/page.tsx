@@ -9,7 +9,7 @@ export const SearchPage: FunctionComponent = () => {
             <NavBarWithFilters />
             <div className="flex">
                 <BusinessSidebar />
-                <div className="fixed right-0 w-2/3">Map</div>
+                <div className="fixed right-0 w-2/3 bg-background">Map</div>
             </div>
         </div>
     );
