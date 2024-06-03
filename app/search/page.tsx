@@ -1,7 +1,9 @@
+"use client";
 import { FunctionComponent } from "react";
+import { NavBarWithFilters } from "../components/NavBarWithFilters";
 
-export const SearchPage = () => {
-    return <div>Search results</div>;
+export const SearchPage: FunctionComponent = () => {
+    return <NavBarWithFilters />;
 };
 
 export default SearchPage;
