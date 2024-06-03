@@ -1,6 +1,7 @@
 "use client";
 import { BusinessCard } from "./BusinessCard";
 import { useState, FunctionComponent, useEffect } from "react";
+import { usePathname } from "next/navigation";
 import supabase from "../config/supabaseClient";
 
 type BusinessType = {
@@ -37,10 +38,24 @@ export const BusinessGrid: FunctionComponent = () => {
         (business: BusinessType) => business.reviewCount < 100
     );
 
+    let isOnSearch = usePathname() === "/search";
+
     return (
         <div>
-            <h3 className="text-xl my-4 font-bold">Recommended</h3>
-            <div className="grid grid-cols-3 gap-10">
+            <h3
+                className={
+                    isOnSearch
+                        ? "text-xl h-14 py-4 mb-4 border-b border-border/70 font-bold sticky top-0 bg-background"
+                        : "text-xl h-12 my-4 border-b border-border/70 font-bold bg-background"
+                }
+            >
+                Recommended
+            </h3>
+            <div
+                className={
+                    isOnSearch ? "grid grid-cols-1" : "grid grid-cols-3 gap-10"
+                }
+            >
                 {recommended
                     .map((business: BusinessType, index) => (
                         <BusinessCard
@@ -54,8 +69,20 @@ export const BusinessGrid: FunctionComponent = () => {
                     ))
                     .slice(0, 3)}
             </div>
-            <h3 className="text-xl my-4 font-bold">New to BeautyHub</h3>
-            <div className="grid grid-cols-3 gap-10">
+            <h3
+                className={
+                    isOnSearch
+                        ? "text-xl h-14 py-4 mb-4 border-b border-border/70 font-bold sticky top-0 bg-background"
+                        : "text-xl h-12 my-4 border-b border-border/70 font-bold bg-background"
+                }
+            >
+                New to BeautyHub
+            </h3>
+            <div
+                className={
+                    isOnSearch ? "grid grid-cols-1" : "grid grid-cols-3 gap-10"
+                }
+            >
                 {newBusinessUser
                     .map((business: BusinessType, index) => (
                         <BusinessCard

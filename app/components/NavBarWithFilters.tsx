@@ -20,7 +20,7 @@ export const NavBarWithFilters: FunctionComponent = () => {
     }, []);
 
     return (
-        <nav className="border-b border-border/40 backdrop-blur-md bg-background/90 h-[10vh] flex items-center sticky top-0 w-full z-2">
+        <nav className="border-b border-border/40 bg-background h-[10vh] flex items-center sticky top-[10vh] w-full z-10">
             <div className="container flex items-end justify-between">
                 <div className="flex text-xs gap-x-7 justify-between">
                     {services.map((service) => (
