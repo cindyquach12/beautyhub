@@ -43,7 +43,8 @@ export const BusinessGrid: FunctionComponent = () => {
         (business: BusinessType) => business.reviewCount < 100
     );
 
-    let isOnSearch = usePathname() === "/search";
+    const isOnSearch = usePathname() === "/search";
+    const NUM_DISPLAYED_CARDS = isOnSearch ? 5 : 3;
 
     return (
         <div>
@@ -62,7 +63,7 @@ export const BusinessGrid: FunctionComponent = () => {
                 }
             >
                 {recommended
-                    .map((business: BusinessType, index) => (
+                    .map((business: BusinessType, index: Number) => (
                         <div className="px-5">
                             <BusinessCard
                                 key={`${business.id}-${index}`}
@@ -74,7 +75,7 @@ export const BusinessGrid: FunctionComponent = () => {
                             />
                         </div>
                     ))
-                    .slice(0, 3)}
+                    .slice(0, NUM_DISPLAYED_CARDS)}
             </div>
             <h3
                 className={
@@ -91,7 +92,7 @@ export const BusinessGrid: FunctionComponent = () => {
                 }
             >
                 {newBusinessUser
-                    .map((business: BusinessType, index) => (
+                    .map((business: BusinessType, index: Number) => (
                         <div className="px-5">
                             <BusinessCard
                                 key={`${business.id}-${index}`}
@@ -103,7 +104,7 @@ export const BusinessGrid: FunctionComponent = () => {
                             />
                         </div>
                     ))
-                    .slice(0, 3)}
+                    .slice(0, NUM_DISPLAYED_CARDS)}
             </div>
         </div>
     );
