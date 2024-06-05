@@ -21,9 +21,10 @@ export const BusinessCard: FunctionComponent<BusinessCardProps> = ({
 }) => {
     let isOnSearch = usePathname() === "/search";
 
-    const searchCardStyling = "border-b border-border/70 h-[18.75rem]";
     const defaultCardStyling =
-        "border rounded-sm border-border/70 h-[18.75rem]";
+        "border rounded-sm border-border/70 h-[18.75rem] overflow-hidden";
+    const searchCardStyling =
+        "border-b rounded-sm border-border/70 h-[18.75rem] overflow-hidden";
 
     return (
         <div className={isOnSearch ? searchCardStyling : defaultCardStyling}>
@@ -36,7 +37,11 @@ export const BusinessCard: FunctionComponent<BusinessCardProps> = ({
                 </div>
                 <p className="text-xs text-gray-400">{location}</p>
             </div>
-            <img src={imgSrc} alt="business picture" className="s-fit" />
+            <img
+                src={imgSrc}
+                alt="business picture"
+                className="object-cover size-full"
+            />
         </div>
     );
 };

@@ -56,7 +56,9 @@ export const BusinessGrid: FunctionComponent = () => {
             </h3>
             <div
                 className={
-                    isOnSearch ? "grid grid-cols-1" : "grid grid-cols-3 gap-10"
+                    isOnSearch
+                        ? "grid grid-cols-1 gap-5"
+                        : "grid grid-cols-3 gap-10"
                 }
             >
                 {recommended
