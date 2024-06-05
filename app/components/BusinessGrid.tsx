@@ -4,6 +4,11 @@ import { useState, FunctionComponent, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import supabase from "../config/supabaseClient";
 
+const SEARCH_HEADER_STYLING =
+    "text-xl h-14 py-4 mb-4 border-b border-border/70 font-bold sticky top-0 bg-background";
+const DEFAULT_HEADER_STYLING =
+    "text-xl h-12 my-4 border-b border-border/70 font-bold bg-background";
+
 type BusinessType = {
     id: number;
     name: string;
@@ -39,16 +44,12 @@ export const BusinessGrid: FunctionComponent = () => {
     );
 
     let isOnSearch = usePathname() === "/search";
-    const searchHeaderStyling =
-        "text-xl h-14 py-4 mb-4 border-b border-border/70 font-bold sticky top-0 bg-background";
-    const defaultHeaderStyling =
-        "text-xl h-12 my-4 border-b border-border/70 font-bold bg-background";
 
     return (
         <div>
             <h3
                 className={
-                    isOnSearch ? searchHeaderStyling : defaultHeaderStyling
+                    isOnSearch ? SEARCH_HEADER_STYLING : DEFAULT_HEADER_STYLING
                 }
             >
                 Recommended
@@ -66,14 +67,14 @@ export const BusinessGrid: FunctionComponent = () => {
                             rating={business.rating}
                             reviewCount={business.reviewCount}
                             location={business.address}
-                            imageSrc={business.imgSrc}
+                            imgSrc={business.imgSrc}
                         />
                     ))
                     .slice(0, 3)}
             </div>
             <h3
                 className={
-                    isOnSearch ? searchHeaderStyling : defaultHeaderStyling
+                    isOnSearch ? SEARCH_HEADER_STYLING : DEFAULT_HEADER_STYLING
                 }
             >
                 New to BeautyHub
@@ -91,7 +92,7 @@ export const BusinessGrid: FunctionComponent = () => {
                             rating={business.rating}
                             reviewCount={business.reviewCount}
                             location={business.address}
-                            imageSrc={business.imgSrc}
+                            imgSrc={business.imgSrc}
                         />
                     ))
                     .slice(0, 3)}

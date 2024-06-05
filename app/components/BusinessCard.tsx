@@ -9,7 +9,7 @@ type BusinessCardProps = {
     rating: Number;
     reviewCount: Number;
     location: string;
-    imageSrc: string;
+    imgSrc: string;
 };
 
 export const BusinessCard: FunctionComponent<BusinessCardProps> = ({
@@ -17,6 +17,7 @@ export const BusinessCard: FunctionComponent<BusinessCardProps> = ({
     rating,
     reviewCount,
     location,
+    imgSrc,
 }) => {
     let isOnSearch = usePathname() === "/search";
 
@@ -35,7 +36,7 @@ export const BusinessCard: FunctionComponent<BusinessCardProps> = ({
                 </div>
                 <p className="text-xs text-gray-400">{location}</p>
             </div>
-            <img alt="business picture" className="s-fit" />
+            <img src={imgSrc} alt="business picture" className="s-fit" />
         </div>
     );
 };
