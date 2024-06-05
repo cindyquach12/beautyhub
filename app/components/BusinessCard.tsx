@@ -2,7 +2,6 @@
 
 import { Star } from "lucide-react";
 import { FunctionComponent } from "react";
-import { usePathname } from "next/navigation";
 
 type BusinessCardProps = {
     name: string;
@@ -19,15 +18,8 @@ export const BusinessCard: FunctionComponent<BusinessCardProps> = ({
     location,
     imgSrc,
 }) => {
-    let isOnSearch = usePathname() === "/search";
-
-    const defaultCardStyling =
-        "border rounded-sm border-border/70 h-[18.75rem] overflow-hidden";
-    const searchCardStyling =
-        "border-b rounded-sm border-border/70 h-[18.75rem] overflow-hidden";
-
     return (
-        <div className={isOnSearch ? searchCardStyling : defaultCardStyling}>
+        <div className="border rounded-sm border-border/70 h-[18.75rem] overflow-hidden shadow-md">
             <div className="business-details border-b border-border/40 pl-3 py-2">
                 <h4 className="text-lg">{name}</h4>
                 <div className="flex items-center my-1">

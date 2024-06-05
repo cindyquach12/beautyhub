@@ -4,10 +4,10 @@ import { useState, FunctionComponent, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import supabase from "../config/supabaseClient";
 
-const SEARCH_HEADER_STYLING =
-    "text-xl h-14 py-4 mb-4 border-b border-border/70 font-bold sticky top-0 bg-background";
 const DEFAULT_HEADER_STYLING =
     "text-xl h-12 my-4 border-b border-border/70 font-bold bg-background";
+const SIDEBAR_HEADER_STYLING =
+    "text-xl h-14 pl-5 py-4 mb-4 border-b border-border/70 font-bold sticky top-0 bg-background shadow-sm";
 
 type BusinessType = {
     id: number;
@@ -49,7 +49,7 @@ export const BusinessGrid: FunctionComponent = () => {
         <div>
             <h3
                 className={
-                    isOnSearch ? SEARCH_HEADER_STYLING : DEFAULT_HEADER_STYLING
+                    isOnSearch ? SIDEBAR_HEADER_STYLING : DEFAULT_HEADER_STYLING
                 }
             >
                 Recommended
@@ -63,39 +63,45 @@ export const BusinessGrid: FunctionComponent = () => {
             >
                 {recommended
                     .map((business: BusinessType, index) => (
-                        <BusinessCard
-                            key={`${business.id}-${index}`}
-                            name={business.name}
-                            rating={business.rating}
-                            reviewCount={business.reviewCount}
-                            location={business.address}
-                            imgSrc={business.imgSrc}
-                        />
+                        <div className="px-5">
+                            <BusinessCard
+                                key={`${business.id}-${index}`}
+                                name={business.name}
+                                rating={business.rating}
+                                reviewCount={business.reviewCount}
+                                location={business.address}
+                                imgSrc={business.imgSrc}
+                            />
+                        </div>
                     ))
                     .slice(0, 3)}
             </div>
             <h3
                 className={
-                    isOnSearch ? SEARCH_HEADER_STYLING : DEFAULT_HEADER_STYLING
+                    isOnSearch ? SIDEBAR_HEADER_STYLING : DEFAULT_HEADER_STYLING
                 }
             >
                 New to BeautyHub
             </h3>
             <div
                 className={
-                    isOnSearch ? "grid grid-cols-1" : "grid grid-cols-3 gap-10"
+                    isOnSearch
+                        ? "grid grid-cols-1 gap-5"
+                        : "grid grid-cols-3 gap-10"
                 }
             >
                 {newBusinessUser
                     .map((business: BusinessType, index) => (
-                        <BusinessCard
-                            key={`${business.id}-${index}`}
-                            name={business.name}
-                            rating={business.rating}
-                            reviewCount={business.reviewCount}
-                            location={business.address}
-                            imgSrc={business.imgSrc}
-                        />
+                        <div className="px-5">
+                            <BusinessCard
+                                key={`${business.id}-${index}`}
+                                name={business.name}
+                                rating={business.rating}
+                                reviewCount={business.reviewCount}
+                                location={business.address}
+                                imgSrc={business.imgSrc}
+                            />
+                        </div>
                     ))
                     .slice(0, 3)}
             </div>
