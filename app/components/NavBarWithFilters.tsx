@@ -3,7 +3,8 @@
 import { FunctionComponent, useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import supabase from "../config/supabaseClient";
-import { Loader, SlidersHorizontal } from "lucide-react";
+import { SlidersHorizontal } from "lucide-react";
+import ThemedImage from "./ThemedImage";
 
 export const NavBarWithFilters: FunctionComponent = () => {
     const [services, setServices] = useState<any>([]);
@@ -25,7 +26,7 @@ export const NavBarWithFilters: FunctionComponent = () => {
                 <div className="flex text-xs gap-x-7 justify-between">
                     {services.map((service) => (
                         <div className="flex flex-col items-center gap-y-2">
-                            <Loader className="size-[1rem]" />
+                            <ThemedImage src={service.iconSrc} />
                             <div>{service.name}</div>
                         </div>
                     ))}
