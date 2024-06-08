@@ -29,7 +29,11 @@ export const BusinessCard: FunctionComponent<BusinessCardProps> = ({
                 </div>
                 <p className="text-xs text-white">{location}</p>
             </div>
-            <img src={imgSrc} alt="business picture" className="object-cover" />
+            <img
+                src={imgSrc}
+                alt="business picture"
+                className="object-cover w-full"
+            />
         </div>
     );
 };
