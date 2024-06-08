@@ -19,7 +19,7 @@ export const BusinessCard: FunctionComponent<BusinessCardProps> = ({
     imgSrc,
 }) => {
     return (
-        <div className="bg-red-400 border rounded-sm border-border/70 h-[18.75rem] overflow-hidden shadow-md">
+        <div className="bg-primary border rounded-sm border-border/70 h-[18.75rem] overflow-hidden shadow-md">
             <div className="business-details text-white border-b border-border/40 pl-3 py-2">
                 <h4 className="text-lg font-medium ">{name}</h4>
                 <div className="flex items-center my-1">
@@ -29,11 +29,7 @@ export const BusinessCard: FunctionComponent<BusinessCardProps> = ({
                 </div>
                 <p className="text-xs text-white">{location}</p>
             </div>
-            <img
-                src={imgSrc}
-                alt="business picture"
-                className="object-cover size-full"
-            />
+            <img src={imgSrc} alt="business picture" className="object-cover" />
         </div>
     );
 };
