@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 import supabase from "../config/supabaseClient";
 
 const DEFAULT_HEADER_STYLING =
-    "text-xl h-12 my-4 border-b border-border/70 font-bold bg-background";
+    "text-3xl h-12 mb-3 mt-10 border-border/70 font-bold";
 const SIDEBAR_HEADER_STYLING =
     "text-xl h-14 pl-5 py-4 mb-4 border-b border-border/70 font-bold sticky top-0 bg-background shadow-sm";
 
@@ -44,7 +44,7 @@ export const BusinessGrid: FunctionComponent = () => {
     );
 
     const isOnSearch = usePathname() === "/search";
-    const NUM_DISPLAYED_CARDS = isOnSearch ? 5 : 3;
+    const NUM_DISPLAYED_CARDS = isOnSearch ? 5 : 6;
 
     return (
         <div>
