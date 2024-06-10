@@ -3,7 +3,7 @@
 import * as React from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { FunctionComponent } from "react";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
@@ -22,15 +22,13 @@ import {
 } from "@/components/ui/popover";
 import { ChevronsUpDown, Check } from "lucide-react";
 import supabase from "../config/supabaseClient";
-
-type LocationType = {
-    city: string;
-    state: string;
-};
+import { LocationAndServiceContext } from "../contexts/location-and-service/LocationAndService.context";
 
 export const SearchWithInput: FunctionComponent = () => {
-    const [location, setLocation] = useState<LocationType>();
-    const [locationTextInput, setLocationTextInput] = useState("");
+    const { location, setLocation, setLocationTextInput, setService } =
+        useContext(LocationAndServiceContext);
+
+    const [userLocationInput, setUserLocationInput] = useState("");
     const [open, setOpen] = useState(false);
     const [value, setValue] = useState("");
     const [services, setServices] = useState<any>([]);
@@ -75,6 +73,11 @@ export const SearchWithInput: FunctionComponent = () => {
         }
     };
 
+    const onSearchClick = () => {
+        setService(value);
+        setLocationTextInput(userLocationInput);
+    };
+
     return (
         <div className="flex w-100 items-center gap-6">
             <div className="w-80">
@@ -97,7 +100,7 @@ export const SearchWithInput: FunctionComponent = () => {
                             <CommandList>
                                 <CommandEmpty>No service found.</CommandEmpty>
                                 <CommandGroup>
-                                    {services.map((service, index) => (
+                                    {services.map((service, index: number) => (
                                         <CommandItem
                                             key={`${service.id}-${index}`}
                                             value={service.name}
@@ -131,18 +134,18 @@ export const SearchWithInput: FunctionComponent = () => {
                 type="text"
                 placeholder="Enter a location"
                 value={
-                    location
+                    location.city !== "" && location.state !== ""
                         ? `${location.city}, ${location.state}`
-                        : locationTextInput
+                        : userLocationInput
                 }
                 className="w-80"
                 onClick={onUseCurrentLocationClick}
                 onInput={(event) =>
-                    setLocationTextInput(event.currentTarget.value)
+                    setUserLocationInput(event.currentTarget.value)
                 }
             />
             <Link href="/search">
-                <Button>Search</Button>
+                <Button onClick={onSearchClick}>Search</Button>
             </Link>
         </div>
     );
