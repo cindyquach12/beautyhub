@@ -64,7 +64,7 @@ export const BusinessGrid: FunctionComponent = () => {
             >
                 {recommended
                     .map((business: BusinessType, index: Number) => (
-                        <div className="px-5">
+                        <div className="pr-5">
                             <BusinessCard
                                 key={`${business.id}-${index}`}
                                 name={business.name}
@@ -93,7 +93,7 @@ export const BusinessGrid: FunctionComponent = () => {
             >
                 {newBusinessUser
                     .map((business: BusinessType, index: Number) => (
-                        <div className="px-5">
+                        <div className="pr-5">
                             <BusinessCard
                                 key={`${business.id}-${index}`}
                                 name={business.name}
