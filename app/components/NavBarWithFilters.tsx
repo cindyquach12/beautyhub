@@ -3,6 +3,7 @@
 import { FunctionComponent, useContext, useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import supabase from "../config/supabaseClient";
+import ThemedImage from "./ThemedImage";
 import { Loader, SlidersHorizontal } from "lucide-react";
 import { LocationAndServiceContext } from "../contexts/location-and-service/LocationAndService.context";
 
@@ -25,7 +26,7 @@ export const NavBarWithFilters: FunctionComponent = () => {
     }, []);
 
     return (
-        <nav className="border-b border-border/40 backdrop-blur-md bg-background/90 h-[10vh] flex items-center sticky top-0 w-full z-2">
+        <nav className="border-b border-border/40 bg-background h-[10vh] flex items-center sticky top-[10vh] w-full z-10">
             <div className="container flex items-end justify-between">
                 <div className="flex text-xs gap-x-7 justify-between">
                     {services.map((service, index) => (
@@ -33,7 +34,7 @@ export const NavBarWithFilters: FunctionComponent = () => {
                             className="flex flex-col items-center gap-y-2"
                             key={index}
                         >
-                            <Loader className="size-[1rem]" />
+                            <ThemedImage src={service.iconSrc} />
                             <div>{service.name}</div>
                         </div>
                     ))}
