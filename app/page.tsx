@@ -10,7 +10,7 @@ export default async function HomeSplash() {
     return (
         <section className="flex justify-center bg-background">
             <img
-                className="splash-background absolute top-[10vh] object-cover opacity-75 contrast-100"
+                className="splash-background fixed h-full w-full object-cover opacity-75 contrast-100"
                 src="/images/micheile-henderson-Wr1GKw4M9R8-unsplash.jpeg"
                 alt=""
             />
@@ -18,7 +18,7 @@ export default async function HomeSplash() {
             <div className="relative items-center w-full px-5 py-12 mx-auto lg:px-16 max-w-7xl md:px-12">
                 <div className="max-w-3xl mx-auto text-center">
                     <div>
-                        <h1 className="my-8 text-3xl font-extrabold tracking-tight lg:text-5xl">
+                        <h1 className="my-8 text-3xl font-extrabold tracking-tight md:text-5xl">
                             Find beauty services in your area
                         </h1>
                         <SearchWithInput />
@@ -33,7 +33,7 @@ export default async function HomeSplash() {
                         )}
                     </div>
                 </div>
-                {/* <BusinessGrid /> */}
+                <BusinessGrid />
             </div>
         </section>
     );

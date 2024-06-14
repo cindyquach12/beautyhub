@@ -59,12 +59,12 @@ export const BusinessGrid: FunctionComponent = () => {
                 className={
                     isOnSearch
                         ? "grid grid-cols-1 gap-5"
-                        : "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10"
+                        : "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 justify-items-center md:justify-items-stretch"
                 }
             >
                 {recommended
                     .map((business: BusinessType, index: Number) => (
-                        <div className="pr-5">
+                        <div className={isOnSearch ? "px-5" : ""}>
                             <BusinessCard
                                 key={`${business.id}-${index}`}
                                 name={business.name}
@@ -93,7 +93,7 @@ export const BusinessGrid: FunctionComponent = () => {
             >
                 {newBusinessUser
                     .map((business: BusinessType, index: Number) => (
-                        <div className="pr-5">
+                        <div className={isOnSearch ? "px-5" : ""}>
                             <BusinessCard
                                 key={`${business.id}-${index}`}
                                 name={business.name}
