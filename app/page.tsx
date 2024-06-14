@@ -8,7 +8,7 @@ export default async function HomeSplash() {
     const { isAuthenticated } = getKindeServerSession();
 
     return (
-        <section className="flex justify-center bg-background h-[125rem]">
+        <section className="flex justify-center bg-background">
             <img
                 className="splash-background absolute top-[10vh] object-cover opacity-75 contrast-100"
                 src="/images/micheile-henderson-Wr1GKw4M9R8-unsplash.jpeg"
@@ -33,7 +33,7 @@ export default async function HomeSplash() {
                         )}
                     </div>
                 </div>
-                <BusinessGrid />
+                {/* <BusinessGrid /> */}
             </div>
         </section>
     );

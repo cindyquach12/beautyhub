@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 import supabase from "../config/supabaseClient";
 
 const DEFAULT_HEADER_STYLING =
-    "text-3xl h-12 mb-3 mt-10 border-border/70 font-bold";
+    "text-3xl h-12 mb-3 mt-10 border-border/70 font-bold flex md:block justify-center ";
 const SIDEBAR_HEADER_STYLING =
     "text-xl h-14 pl-5 py-4 mb-4 border-b border-border/70 font-bold sticky top-0 bg-background shadow-sm";
 
@@ -47,7 +47,7 @@ export const BusinessGrid: FunctionComponent = () => {
     const NUM_DISPLAYED_CARDS = isOnSearch ? 5 : 6;
 
     return (
-        <div>
+        <div className="">
             <h3
                 className={
                     isOnSearch ? SIDEBAR_HEADER_STYLING : DEFAULT_HEADER_STYLING
@@ -59,7 +59,7 @@ export const BusinessGrid: FunctionComponent = () => {
                 className={
                     isOnSearch
                         ? "grid grid-cols-1 gap-5"
-                        : "grid grid-cols-3 gap-10"
+                        : "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10"
                 }
             >
                 {recommended
@@ -88,7 +88,7 @@ export const BusinessGrid: FunctionComponent = () => {
                 className={
                     isOnSearch
                         ? "grid grid-cols-1 gap-5"
-                        : "grid grid-cols-3 gap-10"
+                        : "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10"
                 }
             >
                 {newBusinessUser
