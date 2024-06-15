@@ -79,7 +79,7 @@ export const SearchWithInput: FunctionComponent = () => {
     };
 
     return (
-        <div className="flex w-100 items-center gap-6">
+        <div className="flex flex-col items-center gap-6 md:flex-row">
             <div className="w-80">
                 <Popover open={open} onOpenChange={setOpen}>
                     <PopoverTrigger asChild>
@@ -138,14 +138,16 @@ export const SearchWithInput: FunctionComponent = () => {
                         ? `${location.city}, ${location.state}`
                         : userLocationInput
                 }
-                className="w-80"
+                className="w-80 truncate"
                 onClick={onUseCurrentLocationClick}
                 onInput={(event) =>
                     setUserLocationInput(event.currentTarget.value)
                 }
             />
             <Link href="/search">
-                <Button onClick={onSearchClick}>Search</Button>
+                <Button onClick={onSearchClick} className="w-80 md:w-full">
+                    Search
+                </Button>
             </Link>
         </div>
     );

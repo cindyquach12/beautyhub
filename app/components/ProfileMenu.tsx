@@ -7,6 +7,7 @@ import {
     DropdownMenuLabel,
 } from "@/components/ui/dropdown-menu";
 import {
+    Menu,
     CircleUserRound,
     CreditCard,
     Settings,
@@ -29,7 +30,12 @@ export const ProfileMenu: FunctionComponent = async () => {
     return (
         <DropdownMenu>
             <DropdownMenuTrigger asChild>
-                <Button>{tempUserName}</Button>
+                <Button>
+                    <span>
+                        <Menu className="sm:hidden min-size-[2.75rem]" />
+                    </span>
+                    <span className="hidden sm:block">{tempUserName}</span>
+                </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end" className="w-48">
                 <DropdownMenuLabel>My Account</DropdownMenuLabel>
@@ -42,7 +48,6 @@ export const ProfileMenu: FunctionComponent = async () => {
                         </div>
                     </Link>
                 </DropdownMenuItem>
-                ``
                 <DropdownMenuItem>
                     <Link href={`/profile/${profileId}/favorites`}>
                         <div className="flex items-center">
