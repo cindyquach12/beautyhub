@@ -5,7 +5,6 @@ import {
     LoginLink,
 } from "@kinde-oss/kinde-auth-nextjs/components";
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
-import { ThemeToggle } from "./ThemeToggle";
 import { ProfileMenu } from "./ProfileMenu";
 import { FunctionComponent } from "react";
 
@@ -13,7 +12,7 @@ export const NavBar: FunctionComponent = async () => {
     const { isAuthenticated } = getKindeServerSession();
 
     return (
-        <nav className="flex items-center sticky top-0 h-[10vh] z-10 border-b border-border/40 backdrop-blur-md bg-background/90">
+        <nav className="flex items-center sticky top-0 h-[8vh] lg:h-[9vh] z-10 border-b border-border/40 backdrop-blur-md bg-background/90">
             <div className="container px-4 sm:px-8 flex items-center justify-between">
                 <Link href="/">
                     <h1 className="font-bold text-2xl sm:text-3xl">
@@ -22,7 +21,6 @@ export const NavBar: FunctionComponent = async () => {
                 </Link>
 
                 <div className="flex items-center gap-x-5">
-                    {/* <ThemeToggle /> */}
                     <Link href={"/business"}>
                         <Button className="hidden sm:block">
                             For business

@@ -47,7 +47,7 @@ export const BusinessGrid: FunctionComponent = () => {
     const NUM_DISPLAYED_CARDS = isOnSearch ? 5 : 6;
 
     return (
-        <div className="">
+        <div>
             <h3
                 className={
                     isOnSearch ? SIDEBAR_HEADER_STYLING : DEFAULT_HEADER_STYLING
@@ -59,7 +59,7 @@ export const BusinessGrid: FunctionComponent = () => {
                 className={
                     isOnSearch
                         ? "grid grid-cols-1 gap-5"
-                        : "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10"
+                        : "grid grid-cols-1 sm:max-md:justify-items-center md:grid-cols-2 lg:grid-cols-3 gap-10"
                 }
             >
                 {recommended

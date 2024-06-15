@@ -15,7 +15,7 @@ export default async function HomeSplash() {
                 alt=""
             />
 
-            <div className="relative items-center w-full px-5 py-12 mx-auto lg:px-16 max-w-7xl md:px-12">
+            <div className="relative items-center w-full px-5 md:py-12 mx-auto lg:px-16 max-w-7xl md:px-12">
                 <div className="max-w-3xl mx-auto text-center">
                     <div>
                         <h1 className="my-8 text-3xl font-extrabold tracking-tight md:text-5xl">
