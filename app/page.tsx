@@ -26,7 +26,10 @@ export default async function HomeSplash() {
                     <div className="flex justify-center max-w-sm mx-auto mt-10">
                         {(await isAuthenticated()) ? null : (
                             <RegisterLink>
-                                <Button className="w-full" size="lg">
+                                <Button
+                                    className="w-80 md:w-full min-h-[2.75rem]"
+                                    size="lg"
+                                >
                                     Sign up for free
                                 </Button>
                             </RegisterLink>

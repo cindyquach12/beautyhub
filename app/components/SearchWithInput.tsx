@@ -145,7 +145,9 @@ export const SearchWithInput: FunctionComponent = () => {
                 }
             />
             <Link href="/search">
-                <Button onClick={onSearchClick}>Search</Button>
+                <Button onClick={onSearchClick} className="w-80 md:w-full">
+                    Search
+                </Button>
             </Link>
         </div>
     );

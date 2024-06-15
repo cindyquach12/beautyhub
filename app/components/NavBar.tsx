@@ -22,7 +22,7 @@ export const NavBar: FunctionComponent = async () => {
 
                 <div className="flex items-center gap-x-5">
                     <Link href={"/business"}>
-                        <Button className="hidden sm:block">
+                        <Button className="hidden sm:block min-h-[2.75rem]">
                             For business
                         </Button>
                     </Link>
@@ -36,10 +36,17 @@ export const NavBar: FunctionComponent = async () => {
                             </div>
                             <div className="hidden sm:flex items-center gap-x-5">
                                 <LoginLink>
-                                    <Button>Sign In</Button>
+                                    <Button className="min-h-[2.75rem]">
+                                        Sign In
+                                    </Button>
                                 </LoginLink>
                                 <RegisterLink>
-                                    <Button variant="secondary">Sign Up</Button>
+                                    <Button
+                                        className="min-h-[2.75rem]"
+                                        variant="secondary"
+                                    >
+                                        Sign Up
+                                    </Button>
                                 </RegisterLink>
                             </div>
                         </div>
