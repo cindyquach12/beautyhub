@@ -8,8 +8,8 @@ import { LocationAndServiceProvider } from "../contexts/location-and-service/Loc
 export const SearchPage: FunctionComponent = () => {
     return (
         <LocationAndServiceProvider>
-            <div className="bg-background">
-                <NavBarWithFilters />
+            <NavBarWithFilters />
+            <div>
                 <BusinessSidebar />
                 <div className="fixed right-0 w-2/3 bg-background">Map</div>
             </div>
