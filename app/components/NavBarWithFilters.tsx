@@ -26,7 +26,7 @@ export const NavBarWithFilters: FunctionComponent = () => {
     }, []);
 
     return (
-        <nav className="flex items-center sticky top-20 h-[8vh] z-10 bg-background w-full">
+        <nav className="flex items-center sticky top-20 h-[8vh] lg:h-[10vh] z-10 bg-background w-full">
             <div className="flex items-end justify-between overflow-x-auto py-2.5 px-4">
                 <div className="flex text-xs gap-x-7 justify-between">
                     {services.map((service, index) => (
