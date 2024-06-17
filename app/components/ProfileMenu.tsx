@@ -30,7 +30,7 @@ export const ProfileMenu: FunctionComponent = async () => {
     return (
         <DropdownMenu>
             <DropdownMenuTrigger asChild>
-                <Button>
+                <Button variant="secondary">
                     <span>
                         <Menu className="sm:hidden min-size-[2.75rem]" />
                     </span>

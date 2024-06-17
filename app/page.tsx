@@ -10,7 +10,7 @@ export default async function HomeSplash() {
     return (
         <section className="flex justify-center bg-background">
             <img
-                className="splash-background fixed h-full w-full object-cover opacity-75 contrast-100"
+                className="splash-background fixed h-full w-full object-cover opacity-85 contrast-100"
                 src="/images/micheile-henderson-Wr1GKw4M9R8-unsplash.jpeg"
                 alt=""
             />
@@ -18,17 +18,18 @@ export default async function HomeSplash() {
             <div className="relative items-center w-full px-5 md:py-12 mx-auto lg:px-16 max-w-7xl md:px-12">
                 <div className="max-w-3xl mx-auto text-center">
                     <div>
-                        <h1 className="my-8 text-3xl font-extrabold tracking-tight md:text-5xl">
-                            Find beauty services in your area
-                        </h1>
+                        <h2 className="my-8 text-2xl md:text-4xl text-white tracking-wider">
+                            find beauty services in your area
+                        </h2>
                         <SearchWithInput />
                     </div>
-                    <div className="flex justify-center max-w-sm mx-auto mt-10">
+                    <div className="flex justify-center max-w-sm mx-auto mt-5">
                         {(await isAuthenticated()) ? null : (
                             <RegisterLink>
                                 <Button
                                     className="w-80 md:w-full min-h-[2.75rem]"
                                     size="lg"
+                                    variant="secondary"
                                 >
                                     Sign up for free
                                 </Button>

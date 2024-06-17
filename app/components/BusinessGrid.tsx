@@ -5,9 +5,9 @@ import { usePathname } from "next/navigation";
 import supabase from "../config/supabaseClient";
 
 const DEFAULT_HEADER_STYLING =
-    "text-3xl h-12 mb-3 mt-10 border-border/70 font-bold flex md:block justify-center ";
+    "text-xl md:text-3xl mb-3 mt-10 border-border/70 flex md:block tracking-wide text-white";
 const SIDEBAR_HEADER_STYLING =
-    "text-xl h-14 pl-5 py-4 mb-4 border-b border-border/70 font-bold sticky top-0 bg-background shadow-sm";
+    "text-xl h-14 pl-5 py-4 mb-4 border-b border-border/70 sticky top-0 bg-background shadow-sm tracking-wide text-white";
 
 type BusinessType = {
     id: number;
@@ -46,15 +46,13 @@ export const BusinessGrid: FunctionComponent = () => {
     const isOnSearch = usePathname() === "/search";
     const NUM_DISPLAYED_CARDS = isOnSearch ? 5 : 6;
 
+    const headerStyle = isOnSearch
+        ? SIDEBAR_HEADER_STYLING
+        : DEFAULT_HEADER_STYLING;
+
     return (
         <div>
-            <h3
-                className={
-                    isOnSearch ? SIDEBAR_HEADER_STYLING : DEFAULT_HEADER_STYLING
-                }
-            >
-                Recommended
-            </h3>
+            <h4 className={headerStyle}>recommended</h4>
             <div
                 className={
                     isOnSearch
@@ -77,13 +75,7 @@ export const BusinessGrid: FunctionComponent = () => {
                     ))
                     .slice(0, NUM_DISPLAYED_CARDS)}
             </div>
-            <h3
-                className={
-                    isOnSearch ? SIDEBAR_HEADER_STYLING : DEFAULT_HEADER_STYLING
-                }
-            >
-                New to BeautyHub
-            </h3>
+            <h4 className={headerStyle}>new to beautyhub</h4>
             <div
                 className={
                     isOnSearch
