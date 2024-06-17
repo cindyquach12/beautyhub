@@ -4,7 +4,7 @@ import { FunctionComponent, useContext, useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import supabase from "../config/supabaseClient";
 import ThemedImage from "./ThemedImage";
-import { Loader, SlidersHorizontal } from "lucide-react";
+import { SlidersHorizontal } from "lucide-react";
 import { LocationAndServiceContext } from "../contexts/location-and-service/LocationAndService.context";
 
 export const NavBarWithFilters: FunctionComponent = () => {
@@ -38,9 +38,9 @@ export const NavBarWithFilters: FunctionComponent = () => {
                             <div>{service.name}</div>
                         </div>
                     ))}
-                    <Button className="gap-x-2">
+                    <Button className="gap-x-2" variant="secondary">
                         <SlidersHorizontal className="size-[1rem]" />
-                        <span className="text-xs">Filters</span>
+                        <span className="text-xs">filters</span>
                     </Button>
                 </div>
             </div>

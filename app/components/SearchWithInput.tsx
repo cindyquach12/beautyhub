@@ -98,7 +98,7 @@ export const SearchWithInput: FunctionComponent = () => {
                         <Command>
                             <CommandInput placeholder="Search service" />
                             <CommandList>
-                                <CommandEmpty>No service found.</CommandEmpty>
+                                <CommandEmpty>No service found</CommandEmpty>
                                 <CommandGroup>
                                     {services.map((service, index: number) => (
                                         <CommandItem
@@ -145,7 +145,11 @@ export const SearchWithInput: FunctionComponent = () => {
                 }
             />
             <Link href="/search">
-                <Button onClick={onSearchClick} className="w-80 md:w-full">
+                <Button
+                    onClick={onSearchClick}
+                    className="w-80 md:w-full"
+                    variant="secondary"
+                >
                     Search
                 </Button>
             </Link>

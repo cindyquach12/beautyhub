@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import { MapPin } from "lucide-react";
 import Link from "next/link";
 import {
     RegisterLink,
@@ -15,9 +16,12 @@ export const NavBar: FunctionComponent = async () => {
         <nav className="flex items-center sticky top-0 h-[8vh] lg:h-[10vh] z-10 border-b border-border/40 backdrop-blur-md bg-background/90">
             <div className="container px-4 sm:px-8 flex items-center justify-between">
                 <Link href="/">
-                    <h1 className="font-bold text-2xl sm:text-3xl">
-                        BeautyHub
-                    </h1>
+                    <div className="flex items-center">
+                        <MapPin className="text-indigo-300 mr-1" />
+                        <h3 className="text-lg sm:text-2xl text-indigo-300 tracking-wide">
+                            beautyhub
+                        </h3>
+                    </div>
                 </Link>
 
                 <div className="flex items-center gap-x-5">
@@ -37,7 +41,7 @@ export const NavBar: FunctionComponent = async () => {
                             <div className="hidden sm:flex items-center gap-x-5">
                                 <LoginLink>
                                     <Button className="min-h-[2.75rem]">
-                                        Sign In
+                                        Sign in
                                     </Button>
                                 </LoginLink>
                                 <RegisterLink>
@@ -45,7 +49,7 @@ export const NavBar: FunctionComponent = async () => {
                                         className="min-h-[2.75rem]"
                                         variant="secondary"
                                     >
-                                        Sign Up
+                                        Sign up
                                     </Button>
                                 </RegisterLink>
                             </div>
