@@ -17,7 +17,7 @@ type BusinessType = {
     imgSrc: string;
 };
 
-export const BusinessSidebar: FunctionComponent = () => {
+export const BusinessBottomBar: FunctionComponent = () => {
     const [businesses, setBusinesses] = useState<any | null>([]);
 
     useEffect(() => {
@@ -40,7 +40,7 @@ export const BusinessSidebar: FunctionComponent = () => {
         (business: BusinessType) => business.reviewCount < 100
     );
     return (
-        <div className="absolute top-[16vh] lg:top-[20vh] bottom-0 overflow-y-scroll w-1/3 border-r border-border/70 bg-background">
+        <div className="fixed top-1/2 bottom-0 overflow-y-scroll border-border/70 bg-indigo-200">
             <h4 className={SIDEBAR_HEADER_STYLING}>recommended</h4>
             <div className="grid grid-cols-1 gap-5">
                 {recommended
@@ -79,4 +79,4 @@ export const BusinessSidebar: FunctionComponent = () => {
     );
 };
 
-export default BusinessSidebar;
+export default BusinessBottomBar;
