@@ -40,7 +40,7 @@ export const BusinessBar: FunctionComponent = () => {
         (business: BusinessType) => business.reviewCount < 100
     );
     return (
-        <div className="fixed lg:absolute top-1/2 lg:top-[20vh] lg:w-1/3 bottom-0 overflow-y-scroll lg:border-r lg:border-border/70 bg-indigo-200">
+        <div className="fixed top-2/3 border-border/70 md:absolute md:top-[16vh] md:w-1/3 lg:top-[20vh] lg:border-r bottom-0 overflow-y-scroll bg-indigo-200 z-10">
             <h4 className={HEADER_STYLING}>recommended</h4>
             <div className="grid grid-cols-1 gap-5">
                 {recommended
