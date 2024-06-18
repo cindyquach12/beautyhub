@@ -3,7 +3,7 @@ import { BusinessCard } from "./BusinessCard";
 import { useState, FunctionComponent, useEffect } from "react";
 import supabase from "../config/supabaseClient";
 
-const SIDEBAR_HEADER_STYLING =
+const HEADER_STYLING =
     "text-xl h-14 pl-5 py-4 mb-4 border-b border-border/70 sticky top-0 bg-background shadow-sm tracking-wide text-white";
 
 type BusinessType = {
@@ -17,7 +17,7 @@ type BusinessType = {
     imgSrc: string;
 };
 
-export const BusinessBottomBar: FunctionComponent = () => {
+export const BusinessBar: FunctionComponent = () => {
     const [businesses, setBusinesses] = useState<any | null>([]);
 
     useEffect(() => {
@@ -40,8 +40,8 @@ export const BusinessBottomBar: FunctionComponent = () => {
         (business: BusinessType) => business.reviewCount < 100
     );
     return (
-        <div className="fixed top-1/2 bottom-0 overflow-y-scroll border-border/70 bg-indigo-200">
-            <h4 className={SIDEBAR_HEADER_STYLING}>recommended</h4>
+        <div className="fixed lg:absolute top-1/2 lg:top-[20vh] lg:w-1/3 bottom-0 overflow-y-scroll lg:border-r lg:border-border/70 bg-indigo-200">
+            <h4 className={HEADER_STYLING}>recommended</h4>
             <div className="grid grid-cols-1 gap-5">
                 {recommended
                     .map((business: BusinessType, index: Number) => (
@@ -58,7 +58,7 @@ export const BusinessBottomBar: FunctionComponent = () => {
                     ))
                     .slice(0, 6)}
             </div>
-            <h4 className={SIDEBAR_HEADER_STYLING}>new to beautyhub</h4>
+            <h4 className={HEADER_STYLING}>new to beautyhub</h4>
             <div className="grid grid-cols-1 gap-5">
                 {newBusinessUser
                     .map((business: BusinessType, index: Number) => (
@@ -79,4 +79,4 @@ export const BusinessBottomBar: FunctionComponent = () => {
     );
 };
 
-export default BusinessBottomBar;
+export default BusinessBar;
