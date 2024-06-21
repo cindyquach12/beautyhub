@@ -5,13 +5,10 @@ import { Button } from "@/components/ui/button";
 import supabase from "../config/supabaseClient";
 import ThemedImage from "./ThemedImage";
 import { SlidersHorizontal } from "lucide-react";
-import { LocationAndServiceContext } from "../contexts/location-and-service/LocationAndService.context";
+import { useLocationAndService } from "../contexts/location-and-service/LocationAndService.context";
 
 export const NavBarWithFilters: FunctionComponent = () => {
-    const { location, locationTextInput, service } = useContext(
-        LocationAndServiceContext
-    );
-
+    const { location, locationTextInput, service } = useLocationAndService();
     const [services, setServices] = useState<any>([]);
 
     useEffect(() => {
