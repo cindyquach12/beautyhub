@@ -22,11 +22,11 @@ import {
 } from "@/components/ui/popover";
 import { ChevronsUpDown, Check } from "lucide-react";
 import supabase from "../config/supabaseClient";
-import { LocationAndServiceContext } from "../contexts/location-and-service/LocationAndService.context";
+import { useLocationAndService } from "../hooks/locationAndService.hooks";
 
 export const SearchWithInput: FunctionComponent = () => {
     const { location, setLocation, setLocationTextInput, setService } =
-        useContext(LocationAndServiceContext);
+        useLocationAndService();
 
     const [userLocationInput, setUserLocationInput] = useState("");
     const [open, setOpen] = useState(false);
@@ -105,11 +105,7 @@ export const SearchWithInput: FunctionComponent = () => {
                                             key={`${service.id}-${index}`}
                                             value={service.name}
                                             onSelect={(currentValue) => {
-                                                setValue(
-                                                    currentValue === value
-                                                        ? ""
-                                                        : currentValue
-                                                );
+                                                setValue(currentValue);
                                                 setOpen(false);
                                             }}
                                         >
