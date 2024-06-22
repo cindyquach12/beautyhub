@@ -2,7 +2,6 @@
 
 import React, {
     createContext,
-    useContext,
     FunctionComponent,
     PropsWithChildren,
     useState,
@@ -13,7 +12,7 @@ type LocationType = {
     state: string;
 };
 
-type LocationAndServiceContextType = {
+type LocationAndServiceContextState = {
     location: LocationType;
     locationTextInput: string;
     setLocation: (location: LocationType) => void;
@@ -22,7 +21,7 @@ type LocationAndServiceContextType = {
     setService: (service: string) => void;
 };
 
-const initialState: LocationAndServiceContextType = {
+const initialState: LocationAndServiceContextState = {
     location: { city: "", state: "" },
     locationTextInput: "",
     setLocation: () => {},
@@ -32,11 +31,7 @@ const initialState: LocationAndServiceContextType = {
 };
 
 export const LocationAndServiceContext =
-    createContext<LocationAndServiceContextType>(initialState);
-
-export const useLocationAndService = () => {
-    return useContext(LocationAndServiceContext);
-};
+    createContext<LocationAndServiceContextState>(initialState);
 
 export const LocationAndServiceProvider: FunctionComponent<
     PropsWithChildren
@@ -48,7 +43,7 @@ export const LocationAndServiceProvider: FunctionComponent<
     const [locationTextInput, setLocationTextInput] = useState("");
     const [service, setService] = useState("");
 
-    const props = {
+    const value = {
         location,
         setLocation,
         locationTextInput,
@@ -58,7 +53,7 @@ export const LocationAndServiceProvider: FunctionComponent<
     };
 
     return (
-        <LocationAndServiceContext.Provider value={props}>
+        <LocationAndServiceContext.Provider value={value}>
             {children}
         </LocationAndServiceContext.Provider>
     );

@@ -22,7 +22,7 @@ import {
 } from "@/components/ui/popover";
 import { ChevronsUpDown, Check } from "lucide-react";
 import supabase from "../config/supabaseClient";
-import { useLocationAndService } from "../contexts/location-and-service/LocationAndService.context";
+import { useLocationAndService } from "../hooks/locationAndService.hooks";
 
 export const SearchWithInput: FunctionComponent = () => {
     const { location, setLocation, setLocationTextInput, service, setService } =
