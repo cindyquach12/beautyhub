@@ -25,7 +25,7 @@ import supabase from "../config/supabaseClient";
 import { useLocationAndService } from "../hooks/locationAndService.hooks";
 
 export const SearchWithInput: FunctionComponent = () => {
-    const { location, setLocation, setLocationTextInput, service, setService } =
+    const { location, setLocation, setLocationTextInput, setService } =
         useLocationAndService();
 
     const [userLocationInput, setUserLocationInput] = useState("");
