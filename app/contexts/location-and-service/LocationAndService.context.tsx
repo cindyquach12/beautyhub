@@ -48,7 +48,7 @@ export const LocationAndServiceProvider: FunctionComponent<
     const [locationTextInput, setLocationTextInput] = useState("");
     const [service, setService] = useState("");
 
-    const props = {
+    const value = {
         location,
         setLocation,
         locationTextInput,
