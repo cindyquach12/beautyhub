@@ -12,26 +12,26 @@ type LocationType = {
     state: string;
 };
 
-type LocationAndServiceProviderState = {
+type LocationAndServiceContextState = {
     location: LocationType;
     locationTextInput: string;
-    service: string;
     setLocation: (location: LocationType) => void;
     setLocationTextInput: (locationTextInput: string) => void;
+    service: string;
     setService: (service: string) => void;
 };
 
-const initialState: LocationAndServiceProviderState = {
+const initialState: LocationAndServiceContextState = {
     location: { city: "", state: "" },
     locationTextInput: "",
-    service: "",
     setLocation: () => {},
     setLocationTextInput: () => {},
+    service: "",
     setService: () => {},
 };
 
 export const LocationAndServiceContext =
-    createContext<LocationAndServiceProviderState>(initialState);
+    createContext<LocationAndServiceContextState>(initialState);
 
 export const LocationAndServiceProvider: FunctionComponent<
     PropsWithChildren
