@@ -4,7 +4,7 @@ import { useState, FunctionComponent, useEffect } from "react";
 import supabase from "../config/supabaseClient";
 
 const HEADER_STYLING =
-    "text-xl h-14 pl-5 py-4 mb-4 border-b border-border/70 sticky top-0 bg-background shadow-sm tracking-wide text-white";
+    "header text-xl md:text-xl h-12 w-screen md:h-14 pl-5 py-2 mb-4 border-b border-border/70 sticky top-0 bg-background shadow-sm tracking-wide text-white";
 
 type BusinessType = {
     id: number;
@@ -40,9 +40,9 @@ export const BusinessBar: FunctionComponent = () => {
         (business: BusinessType) => business.reviewCount < 100
     );
     return (
-        <div className="fixed top-2/3 border-border/70 md:absolute md:top-[16vh] md:w-1/3 lg:top-[20vh] lg:border-r bottom-0 overflow-y-scroll bg-indigo-200 z-10">
+        <div className="business-bar fixed top-[10rem] border-border/70 md:absolute md:w-1/3 lg:border-r bottom-0 overflow-y-scroll bg-indigo-200 z-10">
             <h4 className={HEADER_STYLING}>recommended</h4>
-            <div className="grid grid-cols-1 gap-5">
+            <div className="grid grid-cols-1 gap-5 pb-4 justify-items-center">
                 {recommended
                     .map((business: BusinessType, index: Number) => (
                         <div className="px-5">
@@ -59,7 +59,7 @@ export const BusinessBar: FunctionComponent = () => {
                     .slice(0, 6)}
             </div>
             <h4 className={HEADER_STYLING}>new to beautyhub</h4>
-            <div className="grid grid-cols-1 gap-5">
+            <div className="grid grid-cols-1 gap-5 pb-4 justify-items-center">
                 {newBusinessUser
                     .map((business: BusinessType, index: Number) => (
                         <div className="px-5">

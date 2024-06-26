@@ -21,15 +21,15 @@ export const NavBarWithFilters: FunctionComponent = () => {
     }, []);
 
     return (
-        <nav className="flex items-center justify-between sticky top-20 h-[8vh] lg:h-[10vh] z-10 bg-background">
-            <div className="container flex items-center justify-between overflow-x-auto py-2.5 px-4 sm:px-8 gap-x-5 sm:gap-x-2">
+        <nav className="flex sticky top-20 h-[10vh] md:h-[5rem] z-10 border-b border-slate/40 bg-background">
+            <div className="container flex items-center justify-between overflow-x-auto px-4 sm:px-8 gap-x-5 sm:gap-x-2">
                 {services.map((service, index) => (
                     <div
                         className="flex flex-col items-center gap-y-2"
                         key={index}
                     >
                         <ThemedImage src={service.iconSrc} />
-                        <div>{service.name}</div>
+                        <div className="text-xs">{service.name}</div>
                     </div>
                 ))}
                 <Button className="gap-x-2" variant="secondary">
